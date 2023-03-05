@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "../../assets/Style/App.css";
+import { Link } from 'react-router-dom';
 
 const Signin = () => {
 
@@ -14,11 +15,11 @@ const Signin = () => {
 
     };
 
-    const submit = (e) => {
-        // localStorage.setItem([values], (values));
-        // console.log(values,"sss")
-        localStorage.setItem("name", JSON.stringify(values));
-    }
+    // const submit = (e) => {
+    //     // localStorage.setItem([values], (values));
+    //     // console.log(values,"sss")
+    //     localStorage.setItem("name", JSON.stringify(values));
+    // }
 
     // const handleSubmit = (e) => {
     //     e.preventDefault();
@@ -30,9 +31,15 @@ const Signin = () => {
     //   };
 
 
+    function handleSubmit(e) {
+        e.preventDefault()
+        localStorage.setItem('items', JSON.stringify(values));
+    };
+
+
     return (
         <div className="text-center m-5-auto">
-            <form onSubmit={submit}>
+            <form onSubmit={handleSubmit}>
                 <h2>Signin</h2>
                 <p>
                     <label>Email address:</label><br />
@@ -53,8 +60,9 @@ const Signin = () => {
                     />
                 </p>
                 <p>
-                    <button id="btn" type="submit" onClick={submit}>Register</button>
+                    <button id="btn" type="submit">Register</button>
                 </p>
+                <p><Link to="/">Back to Login</Link></p>
             </form>
         </div>
     );

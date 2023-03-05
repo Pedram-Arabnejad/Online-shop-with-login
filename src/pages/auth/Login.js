@@ -40,9 +40,8 @@ const Login = () => {
                 <p>
                     <button id="btn" type="submit">Login</button>
                 </p>
-                <p>
-                    <Link to="/signin">Signin</Link>
-                </p>
+                <p><Link to="/signin">Signin</Link></p>
+                <p><Link to="/ForgetPassword">ForgetPassword</Link></p>
             </form>
         </div>
     );
