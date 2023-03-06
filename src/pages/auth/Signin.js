@@ -1,39 +1,37 @@
 import React, { useState } from 'react';
 import "../../assets/Style/App.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signin = () => {
 
     const [values, setValue] = useState({ email: "", password: "" });
+    const navigate = useNavigate();
 
     const onChangeInput = (e) => {
-        const { name, text } = e.target;
+        const { name, value } = e.target;
         setValue(pvalue => ({
             ...pvalue,
-            [name]: text,
+            [name]: value,
         }));
 
     };
 
-    // const submit = (e) => {
-    //     // localStorage.setItem([values], (values));
-    //     // console.log(values,"sss")
-    //     localStorage.setItem("name", JSON.stringify(values));
-    // }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log(
-    //       values.map((val) => {
-    //         return { [val.name]: val.text };
-    //       })
-    //     );
-    //   };
-
 
     function handleSubmit(e) {
         e.preventDefault()
-        localStorage.setItem('items', JSON.stringify(values));
+        localStorage.setItem("user", JSON.stringify(values));
+        // navigate("/");
+
+        const loggeduser = JSON.parse(localStorage.getItem("user"));
+        if (
+            values.email === loggeduser.email &&
+            values.password === loggeduser.password
+        ) {
+            alert("Emaill & Password is available!!!")
+        }
+        else{
+            navigate("/");
+        }
     };
 
 
