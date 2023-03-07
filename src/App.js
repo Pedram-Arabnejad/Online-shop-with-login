@@ -1,38 +1,21 @@
 import React from 'react';
-import { BrowserRouter, Route, Router, Routes, Switch } from 'react-router-dom';
-import Login from "../src/pages/auth/Login";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/auth/Login';
 import Signin from './pages/auth/Signin';
+import Home from './pages/home/Home';
+import ForgetPassword from './pages/auth/ForgetPassword';
 
 
 function App() {
   return (
-    // <Router>
-    // <Routes>
-    //   <Route exact path="/Login" element={<Login/>}/>
-    //   <Route path="/Sigbin" element={<Signin/>}/>
-    // </Routes>
-    // </Router>
-
-    // <Router>
-    //   <div>
-    //     <Switch>
-    //       <Route exact path="/" component={Login} />
-    //       {/* <Route path="/register" component={Signin} /> */}
-    //     </Switch>
-    //   </div>
-    // </Router>
-
-
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />}/>
-          <Route path="signin" element={<Signin />} />
-        
+        <Route exact path="/" element={<Login />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/ForgetPassword" element={<ForgetPassword />} />
       </Routes>
     </BrowserRouter>
-
-
-    // <Signin/>
   );
 }
 
