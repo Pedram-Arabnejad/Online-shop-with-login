@@ -5,19 +5,28 @@ const Signin = () => {
 
     const [values, setValue] = useState({ email: "", password: "" });
 
-    const onChangeInput = (e) => {
-        const { name, text } = e.target;
+    const onChangeInput = (name,e) => {
+
+        console.log([name],e.target.value,'eeee')
+        // const { name, text } = e.target;
         setValue(pvalue => ({
             ...pvalue,
-            [name]: text,
+            [name]: e.target.value,
         }));
 
     };
 
-    const submit = (e) => {
-        // localStorage.setItem([values], (values));
+    const submit = () => {
+
+        let users = JSON.parse(localStorage.getItem("users") || "[]")
+        users.push(values)
+
+
+        localStorage.setItem('users', JSON.stringify(users))
+        
+    //   localStorage.setItem('user', values);
         // console.log(values,"sss")
-        localStorage.setItem("name", JSON.stringify(values));
+        // localStorage.setItem("name", JSON.stringify(values));
     }
 
     // const handleSubmit = (e) => {
@@ -33,6 +42,7 @@ const Signin = () => {
     return (
         <div className="text-center m-5-auto">
             <form onSubmit={submit}>
+                {console.log(values.email)}
                 <h2>Signin</h2>
                 <p>
                     <label>Email address:</label><br />
@@ -40,7 +50,7 @@ const Signin = () => {
                         name="email"
                         value={values.email}
                         // type="email"
-                        onChange={onChangeInput}
+                        onChange={(e)=>onChangeInput('email',e)}
                     />
                 </p>
                 <p>
@@ -49,7 +59,7 @@ const Signin = () => {
                         name="password"
                         value={values.password}
                         // type="password"
-                        onChange={onChangeInput}
+                        onChange={(e)=>onChangeInput('password',e)}
                     />
                 </p>
                 <p>
