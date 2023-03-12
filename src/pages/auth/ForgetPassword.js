@@ -8,7 +8,7 @@ const ForgetPassword = () => {
 
     const onChangeInput = (e) => {
         const { name, text } = e.target;
-        console.log({ [e.target.name]: e.target.value }, "ppppp")
+        // console.log({ [e.target.name]: e.target.value }, "ppppp")
         setValue(pvalue => ({
             ...pvalue,
             [name]: text,
