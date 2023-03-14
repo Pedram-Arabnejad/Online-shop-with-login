@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import { } from "../../assets/Images/FakeShop.png"
 
 const Navbar = () => {
@@ -13,7 +13,7 @@ const Navbar = () => {
                     </button> */}
 
                     <div>
-                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        <i className="fa fa-user-circle" aria-hidden="true"></i>
                         <NavLink
                             to="/login"
                             style={{ textDecoration: "none", color: "black" }}
@@ -31,6 +31,13 @@ const Navbar = () => {
                         </NavLink>
                     </div>
 
+                    {/* <div>
+                        <button
+                            title="Button"
+                            onPress={() => navigation.navigate("screenRouteName", { params })}
+                        />
+                    </div> */}
+
                     <NavLink
                         to="/home"
                         style={{ textDecoration: "none", color: "black" }}
@@ -38,9 +45,17 @@ const Navbar = () => {
                         {/* <img src="../../assets/Images/FakeShop.png" alt="logo" style={{ height: "50px" }} /> */}
                         <span>FakeShop</span>
                     </NavLink>
-                    <button className="navbar-toggler" type="button">
+
+                    <NavLink
+                        to="/Cart"
+                        style={{ textDecoration: "none", color: "black" }}
+                    >
+                       <span><i className="fa fa-shopping-cart"></i></span>
+                    </NavLink>
+
+                    {/* <button className="navbar-toggler" type="button">
                         <i className="fa fa-shopping-cart"></i>
-                    </button>
+                    </button> */}
 
                 </div>
             </nav>

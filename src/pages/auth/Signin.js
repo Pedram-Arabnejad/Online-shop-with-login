@@ -8,9 +8,7 @@ const Signin = () => {
     const navigate = useNavigate();
 
     const onChangeInput = (name,e) => {
-
-        // console.log([name],e.target.value,'eeee')
-        // const { name, text } = e.target;
+        // const { name, value } = e.target;
         setValue(pvalue => ({
             ...pvalue,
             [name]: e.target.value,
@@ -18,36 +16,6 @@ const Signin = () => {
 
     };
 
-    const submit = () => {
-
-        // let users = JSON.parse(localStorage.getItem("users" , "[]"))
-        let users = JSON.parse(localStorage.getItem("users") || "[]")
-        users.push({values})
-
-
-        localStorage.setItem('users', JSON.stringify(users))
-        
-        //localStorage.setItem('user', values);
-        // console.log(values,"sss")
-        // localStorage.setItem("name", JSON.stringify(values));
-    }
-
-    // function handleSubmit(e) {
-    //     e.preventDefault()
-    //     localStorage.setItem("user", JSON.stringify(values));
-    //     // navigate("/");
-
-    //     const loggeduser = JSON.parse(localStorage.getItem("user"));
-    //     if (
-    //         values.email === loggeduser.email &&
-    //         values.password === loggeduser.password
-    //     ) {
-    //         alert("Emaill & Password is available!!!")
-    //     }
-    //     else{
-    //         navigate("/");
-    //     }
-    // };
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -71,9 +39,7 @@ const Signin = () => {
 
     return (
         <div className="text-center m-5-auto">
-            {/* <form onSubmit={submit}> */}
             <form onSubmit={handleSubmit}>
-                {console.log(values.email)}
                 <h2>Signin</h2>
                 <p>
                     <label>Email address:</label><br />
@@ -94,7 +60,6 @@ const Signin = () => {
                     />
                 </p>
                 <p>
-                    {/* <button id="btn" type="submit" onClick={handleSubmit}>Register</button> */}
                     <button id="btn" type="submit">Register</button>
                 </p>
                 <p><Link to="/" style={{ textDecoration: "none", color: "black" }}>Back to Login</Link></p>

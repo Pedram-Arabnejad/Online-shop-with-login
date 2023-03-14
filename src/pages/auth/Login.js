@@ -19,12 +19,16 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault()
-        const loggeduser = JSON.parse(localStorage.getItem("user"));
+        const loggeduser = JSON.parse(localStorage.getItem("users"));
+
+        const found = loggeduser.find(e => e.email === values.email )
+        // console.log(found,"found")
+        // console.log((values.password === found.password),"zzzz")
         if (
-            values.email === loggeduser.email &&
-            values.password === loggeduser.password
+            values.email === found.email
+            &&
+            values.password === found.password
         ) {
-            alert("Wrong Emaill & Password")
             navigate("/home");
         }
         else{

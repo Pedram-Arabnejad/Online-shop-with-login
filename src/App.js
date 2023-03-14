@@ -6,6 +6,7 @@ import Home from './pages/home/Home';
 import ForgetPassword from './pages/auth/ForgetPassword';
 import Product from './layout/main/Product';
 import Navbar from './layout/header/Navbar';
+import Cart from './pages/auth/Cart';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/home" element={<Home />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route path="/Cart" element={<Cart />} />
           <Route path="/ForgetPassword" element={<ForgetPassword />} />
         </Routes>
       </BrowserRouter>
